@@ -1,0 +1,17 @@
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/test/clientestreaming/resources/JakartaEE91Resource.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Utils/Conversor.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Utils/DBConnection.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Utils/GestionCarpeta.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Filters/AdminFilter.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/Eliminar.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/ReproductorVideo.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/Modificar.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Utils/VideoTranscoder.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/test/clientestreaming/JakartaRestConfiguration.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/ListaVideos.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/Registrar.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/SubirVideo.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/AdminVideos.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Filters/SesionFilter.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/Login.java
+/home/alumne/NetBeansProjects/ClienteStreaming/src/main/java/Servlets/Logout.java

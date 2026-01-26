@@ -1,0 +1,6 @@
+Utils/VideoTranscoder.class
+test/api/reststreaming/JakartaRestConfiguration.class
+Utils/Conversor.class
+test/api/reststreaming/resources/JakartaEE91Resource.class
+Utils/GestionCarpeta.class
+Utils/DBConnection.class
