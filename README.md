@@ -1,40 +1,43 @@
-# Plataforma de Streaming Web 🎬
+# Plataforma de Video Streaming Adaptativo (MPEG-DASH) 🎬
 
-Este repositorio contiene el código fuente y la documentación de una aplicación web de streaming de video. El proyecto está diseñado con una arquitectura cliente-servidor, utilizando una **API REST** construida con **Servlets y Jakarta EE** en el backend, y un cliente web para la reproducción multimedia.
+Este proyecto implementa una solución completa de streaming de video utilizando el estándar **ISO/IEC 23009-1 (MPEG-DASH)**. A través de una arquitectura desacoplada, el sistema permite la transmisión de contenido multimedia que se adapta dinámicamente a las condiciones de red del cliente, garantizando una reproducción sin interrupciones.
 
-Como característica destacada, el proyecto aborda la implementación y el estudio del protocolo de streaming **MPEG-DASH**, detallado en la documentación adjunta.
+## 🚀 Características Técnicas Destacadas
 
-## 📁 Estructura del Repositorio
+- **Streaming Adaptativo (ABR):** Implementación de lógica para conmutar entre diferentes calidades de video en tiempo real según el ancho de banda disponible.
+- **Procesamiento de Video:** Uso de `ffmpeg` para la segmentación de video en fragmentos (.m4s) y generación de archivos de descripción de presentación multimedia (.mpd).
+- **Backend Robusto:** API REST desarrollada con **Jakarta EE y Servlets**, encargada de la gestión de recursos y despacho de segmentos multimedia.
+- **Persistencia:** Gestión de metadatos mediante **Apache Derby** integrada en el servidor de aplicaciones.
 
-- **`API-RESTStreaming/`**: Contiene el código fuente del Backend (Servidor). Implementado con Java (Jakarta EE / Servlets puros) para gestionar las peticiones RESTful de los clientes y servir los fragmentos de video.
-- **`ClienteStreaming/`**: Contiene el código fuente del Frontend (Cliente Web). Interfaz encargada de consumir la API REST y reproducir el contenido multimedia de forma fluida.
-- **`version unificada(old)/`**: Versión anterior y monolítica del proyecto. Se mantiene únicamente como registro histórico de la evolución del código hacia una arquitectura desacoplada.
-- **`informe MPEG-DASH.pdf` / `.odt`**: Informe de investigación técnico sobre la implementación del estándar MPEG-DASH (Dynamic Adaptive Streaming over HTTP) y cómo se aplica en el contexto de este proyecto.
+## 📁 Estructura del Proyecto
 
-## 🛠️ Tecnologías Utilizadas
+- **`API-RESTStreaming/`**: Backend en Java que expone los endpoints necesarios para el descubrimiento y consumo de recursos multimedia.
+- **`ClienteStreaming/`**: Cliente web que integra el reproductor para interpretar manifiestos DASH y gestionar el buffer de reproducción.
+- **`informe MPEG-DASH.pdf`**: Documentación exhaustiva que cubre desde la codificación hasta la arquitectura de red y protocolos utilizados.
 
-- **Backend:** Java, Jakarta EE, Servlets.
-- **Streaming:** Protocolo MPEG-DASH.
-- **Frontend:** HTML5, CSS, JavaScript (añadir librerías específicas si usaste alguna, como dash.js).
-- **Despliegue:** (Añadir tu servidor de aplicaciones, ej. Apache Tomcat, GlassFish, Payara).
+## 🛠️ Stack Tecnológico
 
-## 🚀 Cómo ejecutar el proyecto (Entorno de Desarrollo)
+* **Lenguaje:** Java 17+ (Jakarta EE)
+* **Servidor de Aplicaciones:** GlassFish / Payara Server
+* **Base de Datos:** Apache Derby (Java DB)
+* **Procesamiento:** FFmpeg (Segmentación de video)
+* **Protocolo:** HTTP/1.1 con soporte para rangos de bytes (Byte-range requests)
 
-### 1. Despliegue de la API REST (Backend)
-1. Clona este repositorio: `git clone https://github.com/tu-usuario/tu-repositorio.git`
-2. Importa la carpeta `API-RESTStreaming` en tu IDE (IntelliJ IDEA, Eclipse, etc.).
-3. Configura tu servidor de aplicaciones (ej. Tomcat 10+).
-4. Compila y despliega el proyecto (formato `.war`). 
-5. Verifica que la API esté corriendo (usualmente en `http://localhost:8080/API-RESTStreaming`).
+## 🔧 Configuración y Despliegue
 
-### 2. Ejecución del Cliente (Frontend)
-1. Navega a la carpeta `ClienteStreaming`.
-2. Puedes servir estos archivos estáticos usando un servidor web simple (como la extensión Live Server de VS Code, o usando Python: `python -m http.server 3000`).
-3. Abre el navegador web en el puerto correspondiente (ej. `http://localhost:3000`).
-4. *Nota: Asegúrate de configurar correctamente los CORS en el servidor si ejecutas cliente y servidor en puertos distintos.*
+### Requisitos Previos
+* Java JDK 17 o superior.
+* Servidor GlassFish configurado en el puerto 8080.
+* Recursos de video segmentados siguiendo la estructura detallada en el informe técnico.
 
-## 📚 Documentación adicional
-Para entender a fondo la base teórica y técnica de la transmisión de video adaptativa por HTTP implementada en este repositorio, te invito a leer el **`informe MPEG-DASH.pdf`**.
+### Pasos de Instalación
+1. **Clonación:** `git clone https://github.com/tu-usuario/streaming-dash-jakarta.git`
+2. **Backend:** Importar `API-RESTStreaming` en el IDE y desplegar el artefacto `.war` en el servidor de aplicaciones.
+3. **Frontend:** Servir la carpeta `ClienteStreaming` (se recomienda usar un servidor web ligero para evitar problemas de rutas relativas).
+4. **Base de Datos:** El sistema inicializa automáticamente el esquema en Derby al primer despliegue si el pool de conexiones está correctamente referenciado.
+
+## 📚 Resumen de Investigación (Extracto del Informe)
+El proyecto aborda la problemática de la variabilidad del ancho de banda en redes IP. Mediante el uso de **MPEG-DASH**, el contenido se divide en segmentos cortos descargables por HTTP. El cliente decide qué calidad descargar basándose en su capacidad actual, eliminando el buffering tradicional de las descargas progresivas.
 
 ---
-*Este proyecto fue desarrollado como parte de mi especialidad en TI, demostrando conocimientos sólidos en el manejo de protocolos web, arquitectura REST y tecnologías base de Java EE.*
+*Este proyecto es el resultado de una investigación técnica profunda sobre protocolos de capa de aplicación y sistemas de distribución de contenido (CDN).*
