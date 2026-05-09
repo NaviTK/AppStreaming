@@ -36,7 +36,7 @@ Este proyecto implementa una solución completa de streaming de video utilizando
 3. **Frontend:** Servir la carpeta `ClienteStreaming` (se recomienda usar un servidor web ligero para evitar problemas de rutas relativas).
 4. **Base de Datos:** El sistema inicializa automáticamente el esquema en Derby al primer despliegue si el pool de conexiones está correctamente referenciado.
 
-## 📚 Resumen de Investigación (Extracto del Informe)
+## 📚 Resumen del Proyecto
 El proyecto aborda la problemática de la variabilidad del ancho de banda en redes IP. Mediante el uso de **MPEG-DASH**, el contenido se divide en segmentos cortos descargables por HTTP. El cliente decide qué calidad descargar basándose en su capacidad actual, eliminando el buffering tradicional de las descargas progresivas.
 
 ---
